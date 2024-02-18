@@ -7,6 +7,9 @@
 
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -24,10 +27,11 @@ nav {
 nav ul {
     list-style-type: none;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -45,27 +49,32 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
 
 /* Responsive styles */
+
+/* Smartphone */
 @media only screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* เปลี่ยนเมนูให้แสดงเป็นรายการลงมาในขนาดของ smartphone */
+    }
     nav ul li {
-        display: block;
-        margin: 10px 0;
+        margin: 10px 0; /* กำหนด margin ให้กับแต่ละรายการ */
     }
 }
 
-@media only screen and (max-width: 768px) {
-    header {
-        padding: 10px 0;
+
+/* Tablet */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    nav ul li {
+        margin-right: 10px;
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    footer {
-        position: static;
+/* Desktop */
+@media only screen and (min-width: 1025px) {
+    nav ul li {
+        margin-right: 20px;
     }
 }
